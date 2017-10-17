@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="recipes.js"></script>
+<link rel="stylesheet" type="text/css" href="recipes.css">
+  <meta charset="utf-8">
+  <title>Recipe Finder</title>
+</head>
+<body>
+  <div ng-app='recipe' ng-controller='mainCtrl'>
+  <h1>Enter a recipe</h1>
+  <p>Only the ingredients for now-- quantities will come later</p>
+  <p>When you're done entering ingredients, enter the recipe name and press Add Recipe</p>
+  <form name='enterIng' ng-submit='addIngredient(enterIng)'>
+    <input placeholder='Ingredient' ng-model='enterIng.name'/>
+    <button type='submit'>Add Ingredient</button>
+  </form>
+  <form name='enterRec' ng-submit='addRecipe(enterRec)'>
+   <input placeholder='Recipe name' ng-model='enterRec.name'/>
+   <button type='submit'>Add Recipe</button>
+  </form>
+
+  <h1>Find a recipe</h1>
+  <p>Enter an ingredient and see which recipes have it</p>
+  <form name='findIng' ng-submit='findIngredient(findIng)'>
+    <input placeholder='Ingredient' ng-model='findIng.name'/>
+    <button type='submit'>Find Ingredient</button>
+  </form>
+</body>
+</html>
