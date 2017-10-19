@@ -1,20 +1,28 @@
-var app = angular.module('recipes', []).controller('mainCtrl',mainCtrl);
+var app = angular.module('recipe', []);
 
-function mainCtrl ($scope) {
+app.controller('mainCtrl', function($scope) {
 $scope.ingredients = [];
 $scope.recipes = [];
+$scope.coolrecipes = [];
 $scope.addIngredient = function(food) {
-  $scope.ingredients.push({food: food.name});
-  console.log('food');
+  $scope.ingredients.push({ing: food.name});
+  food.name = '';
 };
 $scope.addRecipe = function(food) {
   var newrecipe = [];
   for (var x=0; x<$scope.ingredients.length; x++) {
-  newrecipe.push({ing: $scope.ingredients[x].name});
+  newrecipe.push({bob: $scope.ingredients[x].ing});
   }
-  $scope.recipes.push({name:food.name, ing:$scope.ingredients.food});
+  $scope.recipes.push({rec:food.name,ing:newrecipe});
+  $scope.ingredients.length = 0;
+  food.name = '';
 };
 $scope.findIngredient = function(food) {
-  console.log(food);
+  $scope.coolrecipes.length = 0;
+  for (var i = 0; i < $scope.recipes.length; i++) {
+      for (var j = 0; j < $scope.recipes[i].ing.length; j++) {
+	   if ($scope.recipes[i].ing[j].bob == food.name) {
+		$scope.coolrecipes.push({name:$scope.recipes[i].rec});
+}}}
 };
-}
+});

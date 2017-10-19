@@ -20,11 +20,23 @@
    <button type='submit'>Add Recipe</button>
   </form>
 
+  <ul class='recipe-list'>
+  <li ng-repeat='recipe in recipes'>
+    <h4>{{recipe.rec}}</h4>
+  </li>
+  </ul>
   <h1>Find a recipe</h1>
   <p>Enter an ingredient and see which recipes have it</p>
   <form name='findIng' ng-submit='findIngredient(findIng)'>
     <input placeholder='Ingredient' ng-model='findIng.name'/>
     <button type='submit'>Find Ingredient</button>
   </form>
+
+  <ul class='find-list'>
+  <li ng-repeat='recipe in coolrecipes'>
+    <h4>{{recipe.name}}</h4>
+  </li>
+  </ul>
+  </div>
 </body>
 </html>
